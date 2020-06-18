@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ReactDemo from 'time-rules-msg-component';
+import ReactDemo from 'prewarning';
 
 function App() {
   return (
