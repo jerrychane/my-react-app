@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import ReactDemo from 'prewarning';
-
+import TestDemo from 'prewarning';
+import 'prewarning/dist/main.css';
 function App() {
   return (
     <div className="App">
-       111111111111111111111111111111
-       <ReactDemo />
+       <TestDemo/>
     </div>
   );
 }
