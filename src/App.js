@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
-import TestDemo from 'prewarning';
-import 'prewarning/dist/main.css';
+import TestDemo  from 'prewarning';
+import  'prewarning/dist/main.css';
 function App() {
   return (
-    <div className="App">
+    <div>
        <TestDemo/>
     </div>
   );
