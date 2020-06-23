@@ -1,6 +1,7 @@
 import React from 'react';
-import TestDemo  from 'prewarning';
-import  'prewarning/dist/main.css';
+import TestDemo  from 'warning-component';
+import  'warning-component/dist/main.css';
+
 function App() {
   return (
     <div>
