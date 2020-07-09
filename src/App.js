@@ -24,14 +24,12 @@ class App extends Component {
  * @param {Array} newData 选中行信息
  */
   getSelectedDataForTimerules (selectedList, record, index, newData) {
-    console.log('App -> getSelectedDataForTimerules -> selectedList, record, index, newData', selectedList, record, index, newData)
   }
   /**
    * 新增定时规则点击确定后的回调
    * @param {Object} value 新增定时规则数据
    */
   tasktimeCallback (value) {
-    console.log('App -> tasktimeCallback -> value', value)
   }
   /**
    * 删除定时规则
@@ -39,7 +37,6 @@ class App extends Component {
    * @param {Number} index 删除行索引
    */
   onDeleteTimeRules (oper, index) {
-    console.log('App -> onDeleteTimeRules -> oper, index', oper, index)
   }
   /**
    * 编辑定时规则
@@ -48,8 +45,6 @@ class App extends Component {
    * @param {Number} index 编辑行索引
    */
   onEditTimerules (oper, data, index) {
-    console.log('App -> onEditTimerules -> oper, data, index', oper, data, index)
-
   }
   render () {
     const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK } = this.state
@@ -64,10 +59,10 @@ class App extends Component {
         taskDetailData={taskDetailData}
         timezone={timezone}
         timezonePK={timezonePK}
-        getSelectedDataForTimerules={this.getSelectedDataForTimerules.bind(this)}
-        tasktimeCallback={this.tasktimeCallback.bind(this)}
-        onDeleteTimeRules={this.onDeleteTimeRules.bind(this)}
-        onEditTimerules={this.onEditTimerules.bind(this)}
+        getSelectedDataForTimerules={this.getSelectedDataForTimerules}
+        tasktimeCallback={this.tasktimeCallback}
+        onDeleteTimeRules={this.onDeleteTimeRules}
+        onEditTimerules={this.onEditTimerules}
       />)
   }
 }
