@@ -23,20 +23,24 @@ class App extends Component {
  * @param {Number} index 选中行行数
  * @param {Array} newData 选中行信息
  */
-  getSelectedDataForTimerules (selectedList, record, index, newData) {
+
+  getSelectedDataForTimerules = (selectedList, record, index, newData) => {
+    console.log('App -> getSelectedDataForTimerules -> selectedList, record, index, newData', selectedList, record, index, newData)
   }
   /**
    * 新增定时规则点击确定后的回调
    * @param {Object} value 新增定时规则数据
    */
-  tasktimeCallback (value) {
+  tasktimeCallback = (value) => {
+    console.log('App -> tasktimeCallback -> value', value)
   }
   /**
    * 删除定时规则
    * @param {String} oper 默认值为 'delete'
    * @param {Number} index 删除行索引
    */
-  onDeleteTimeRules (oper, index) {
+  onDeleteTimeRules = (oper, index) => {
+    console.log('App -> onDeleteTimeRules -> oper, index', oper, index)
   }
   /**
    * 编辑定时规则
@@ -44,13 +48,41 @@ class App extends Component {
    * @param {Object} data 编辑行数据
    * @param {Number} index 编辑行索引
    */
-  onEditTimerules (oper, data, index) {
+  onEditTimerules = (oper, data, index) => {
+    console.log('App -> onEditTimerules -> oper, data, index', oper, data, index)
   }
+
+  /**
+ * 选人组件:消息设置-设置-确定后的回调函数，获取消息接收人
+ * @param {Number} sendflag 发送时机 0-都不发送 1-失败发送 2-成功失败都发送
+ * @param {Array} taskUserList 消息设置选中行信息
+ */
+  taskuserListCallback = (sendflag, taskUserList) => {
+    console.log('App -> taskuserListCallback -> sendflag, taskUserList', sendflag, taskUserList)
+  }
+
+  /**
+ * 选人组件:获取消息设置后的所有状态信息
+ * @param {Object} TaskUserState 消息设置点击确定后所有state信息
+ */
+  getTaskUserState = (TaskUserState) => {
+    console.log('App -> getTaskUserState -> TaskUserState', TaskUserState)
+  }
+  /**
+   * 选人组件：删除接收人
+   * @param {Object} record 选中行信息
+   * @param {Number} index 选中行行数
+   */
+  deleteUserSelected = (record, index) => {
+    console.log('App -> deleteUserSelected -> record, index', record, index)
+  }
+
   render () {
     const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK } = this.state
     return (
       <WarningComponent
-        className={'demo'}
+        className={'demoClassName'}
+        refs={'demoRefs'}
         taskDetailDataTaskTime={taskDetailDataTaskTime}
         rulesForTasktimeTips={rulesForTasktimeTips}
         tableDataForTaskway={tableDataForTaskway}
@@ -63,6 +95,9 @@ class App extends Component {
         tasktimeCallback={this.tasktimeCallback}
         onDeleteTimeRules={this.onDeleteTimeRules}
         onEditTimerules={this.onEditTimerules}
+        taskuserListCallback={this.taskuserListCallback}
+        getTaskUserState={this.getTaskUserState}
+        deleteUserSelected={this.deleteUserSelected}
       />)
   }
 }
