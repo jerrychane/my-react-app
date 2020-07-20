@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import WarningComponent from 'warning-component';
 import 'warning-component/dist/main.css';
-
+import moment from 'moment';
+moment.locale('zh-cn');  //中文
+// moment.locale('en');//英文
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +16,7 @@ class App extends Component {
       userlistAllData: [],//所有消息接收人   
       taskUserList: [],//当前已选消息接收人
       taskDetailData: [],//任务详情 
+      languageFlag: 'zh_CN',
     }
   }
   /**
@@ -78,11 +81,13 @@ class App extends Component {
   }
 
   render () {
-    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK } = this.state
+    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag} = this.state
+    console.log(window.navigator.language);
     return (
       <WarningComponent
         className={'demoClassName'}
         refs={'demoRefs'}
+        locale={languageFlag}
         taskDetailDataTaskTime={taskDetailDataTaskTime}
         rulesForTasktimeTips={rulesForTasktimeTips}
         tableDataForTaskway={tableDataForTaskway}
