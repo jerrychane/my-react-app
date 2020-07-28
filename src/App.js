@@ -81,6 +81,7 @@ class App extends Component {
   }
 
   render () {
+    console.log(process.env)
     const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag} = this.state
     console.log(window.navigator.language);
     return (
