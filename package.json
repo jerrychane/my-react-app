@@ -2,6 +2,12 @@
     "name": "my-react-app",
     "version": "0.1.0",
     "private": true,
+    "scripts": {
+        "start": "node scripts/start.js",
+        "build": "rm -rf dist && node scripts/build.js && npm run zzip",
+        "zzip": "cd dist && rm -rf warning-component-demo.zip && zip -r  warning-component-demo.zip ./",
+        "test": "node scripts/test.js"
+    },
     "dependencies": {
         "@babel/core": "7.9.0",
         "@svgr/webpack": "4.3.3",
@@ -62,10 +68,8 @@
         "webpack-manifest-plugin": "2.2.0",
         "workbox-webpack-plugin": "4.3.1"
     },
-    "scripts": {
-        "start": "node scripts/start.js",
-        "build": "rm -rf dist && node scripts/build.js",
-        "test": "node scripts/test.js"
+    "devDependencies": {
+        "compressing": "^1.5.1"
     },
     "eslintConfig": {
         "extends": "react-app"
