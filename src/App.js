@@ -4,6 +4,7 @@ import 'warning-component/dist/main.css';
 import moment from 'moment';
 moment.locale('zh-cn');  //中文
 // moment.locale('en');//英文
+window.$$msdomain = ''
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class App extends Component {
       userlistAllData: [],//所有消息接收人   
       taskUserList: [],//当前已选消息接收人
       taskDetailData: [],//任务详情 
+      mode:'',// 选人组件环境模式
       languageFlag: 'zh_CN',
     }
   }
@@ -82,12 +84,13 @@ class App extends Component {
 
   render () {
     console.log(process.env)
-    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag} = this.state
+    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag,mode} = this.state
     console.log(window.navigator.language);
     return (
       <WarningComponent
         className={'demoClassName'}
         refs={'demoRefs'}
+        mode={mode}
         locale={languageFlag}
         taskDetailDataTaskTime={taskDetailDataTaskTime}
         rulesForTasktimeTips={rulesForTasktimeTips}
