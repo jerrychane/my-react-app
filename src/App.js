@@ -18,6 +18,7 @@ class App extends Component {
       taskUserList: [],//当前已选消息接收人
       taskDetailData: [],//任务详情 
       mode:'',// 选人组件环境模式
+      taskName:'',// 任务名称
       languageFlag: 'zh_CN',
     }
   }
@@ -82,9 +83,26 @@ class App extends Component {
     console.log('App -> deleteUserSelected -> record, index', record, index)
   }
 
+    /**
+  * 任务名称输入框 onChange 函数
+  * @param {String} taskNameValue 
+  * @param {Object} taskNameList 
+  */
+  handleInputChange(taskNameValue,taskNameList) {
+    console.log('App -> handleInputChange -> taskNameList', taskNameList)
+    console.log('App -> handleInputChange -> taskNameValue', taskNameValue)
+  }
+ /**
+  * 任务名称点击确定后的回调函数
+  * @param {Object} taskNameList 
+  */
+  handleOnOk(taskNameList) {
+    console.log('App -> handleOnOk -> taskNameList', taskNameList)
+  } 
+
   render () {
     console.log(process.env)
-    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag,mode} = this.state
+    const { taskDetailDataTaskTime, tableDataForTaskway, rulesForTasktimeTips, userlistAllData, taskUserList, taskDetailData, timezone, timezonePK ,languageFlag,mode,taskName} = this.state
     console.log(window.navigator.language);
     return (
       <WarningComponent
@@ -100,6 +118,7 @@ class App extends Component {
         taskDetailData={taskDetailData}
         timezone={timezone}
         timezonePK={timezonePK}
+        taskName={taskName}
         getSelectedDataForTimerules={this.getSelectedDataForTimerules}
         tasktimeCallback={this.tasktimeCallback}
         onDeleteTimeRules={this.onDeleteTimeRules}
@@ -107,6 +126,8 @@ class App extends Component {
         taskuserListCallback={this.taskuserListCallback}
         getTaskUserState={this.getTaskUserState}
         deleteUserSelected={this.deleteUserSelected}
+        handleInputChange={this.handleInputChange}
+        handleOnOk={this.handleOnOk}
       />)
   }
 }
